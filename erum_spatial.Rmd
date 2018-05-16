@@ -27,11 +27,9 @@ library(rgdal)
 ## Your first shapefile
 ```{r, message=FALSE, warning=FALSE}
 
-# Use the whole filepath not just the extension from your working directory
+BUD_dist <- readOGR("Bud.shp") #Polygons layer
 
-BUD_dist <- readOGR("~/Dropbox/R_ladies/R_Ladies_Manchester/Bud.shp") #Polygons layer
-
-BUD_WATER <- readOGR("~/Dropbox/R_ladies/R_Ladies_Manchester/budwet.shp") #Waterways layer
+BUD_WATER <- readOGR("budwet.shp") #Waterways layer
 
 ```
 
@@ -59,8 +57,7 @@ You will need to create a user account but this is very straightforward.
 
 
 ```{r, message=FALSE}
-# Use the whole filepath not just the extension from your working directory
-Man_LSOA <- readOGR("~/Dropbox/R_ladies/R_Ladies_Manchester/E08000003_IMD/E08000003.shp") #Polygons layer
+Man_LSOA <- readOGR("E08000003.shp") #Polygons layer
 ```
 
 ```{r man}
@@ -75,7 +72,7 @@ breaks <- classIntervals(Man_LSOA@data$crime, n = 5, style = "fisher") #Create '
 ```
 
 
-[Color Brewer](http://colorbrewer2.org/)
+[Color Brewer](http://colorbrewer2.org/) A great website for choosing and building palettes that make it easy to interpret your data, even taking into consideration colourblidness. 
 
 ```{r}
 

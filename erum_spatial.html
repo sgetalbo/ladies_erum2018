@@ -157,16 +157,14 @@ library(rgdal)</code></pre>
 </div>
 <div id="your-first-shapefile" class="section level2">
 <h2>Your first shapefile</h2>
-<pre class="r"><code># Use the whole filepath not just the extension from your working directory
-
-BUD_dist &lt;- readOGR(&quot;~/Dropbox/R_ladies/R_Ladies_Manchester/Bud.shp&quot;) #Polygons layer</code></pre>
+<pre class="r"><code>BUD_dist &lt;- readOGR(&quot;Bud.shp&quot;) #Polygons layer</code></pre>
 <pre><code>## OGR data source with driver: ESRI Shapefile 
-## Source: &quot;/Users/etalbot1291/Dropbox/R_ladies/R_Ladies_Manchester/Bud.shp&quot;, layer: &quot;Bud&quot;
+## Source: &quot;/Users/etalbot1291/Google_Drive/PhD/Conferences/2017_18/eRum2018/Buda/Bud.shp&quot;, layer: &quot;Bud&quot;
 ## with 23 features
 ## It has 1 fields</code></pre>
-<pre class="r"><code>BUD_WATER &lt;- readOGR(&quot;~/Dropbox/R_ladies/R_Ladies_Manchester/budwet.shp&quot;) #Waterways layer</code></pre>
+<pre class="r"><code>BUD_WATER &lt;- readOGR(&quot;budwet.shp&quot;) #Waterways layer</code></pre>
 <pre><code>## OGR data source with driver: ESRI Shapefile 
-## Source: &quot;/Users/etalbot1291/Dropbox/R_ladies/R_Ladies_Manchester/budwet.shp&quot;, layer: &quot;budwet&quot;
+## Source: &quot;/Users/etalbot1291/Google_Drive/PhD/Conferences/2017_18/eRum2018/Buda/budwet.shp&quot;, layer: &quot;budwet&quot;
 ## with 2138 features
 ## It has 4 fields
 ## Integer64 fields read as strings:  osm_id</code></pre>
@@ -186,10 +184,9 @@ plot(BUD_WATER,add=TRUE, col=&quot;#0000FF&quot;, lwd=0.7)</code></pre>
 <ul>
 <li><a href="https://data.cdrc.ac.uk/dataset/cdrc-2011-oac-geodata-pack-manchester-e08000003">CDRC 2011 OAC Geodata Pack - Manchester (E08000003)</a></li>
 </ul>
-<pre class="r"><code># Use the whole filepath not just the extension from your working directory
-Man_LSOA &lt;- readOGR(&quot;~/Dropbox/R_ladies/R_Ladies_Manchester/E08000003_IMD/E08000003.shp&quot;) #Polygons layer</code></pre>
+<pre class="r"><code>Man_LSOA &lt;- readOGR(&quot;E08000003.shp&quot;) #Polygons layer</code></pre>
 <pre><code>## OGR data source with driver: ESRI Shapefile 
-## Source: &quot;/Users/etalbot1291/Dropbox/R_ladies/R_Ladies_Manchester/E08000003_IMD/E08000003.shp&quot;, layer: &quot;E08000003&quot;
+## Source: &quot;/Users/etalbot1291/Google_Drive/PhD/Conferences/2017_18/eRum2018/Buda/E08000003.shp&quot;, layer: &quot;E08000003&quot;
 ## with 282 features
 ## It has 12 fields
 ## Integer64 fields read as strings:  imd_rank</code></pre>
@@ -211,7 +208,7 @@ Man_LSOA &lt;- readOGR(&quot;~/Dropbox/R_ladies/R_Ladies_Manchester/E08000003_IM
 <pre class="r"><code>#Replace imd_rank with any of the headings to plot the variable you are interested in.
 
 breaks &lt;- classIntervals(Man_LSOA@data$crime, n = 5, style = &quot;fisher&quot;) #Create 'fisher' breaks</code></pre>
-<p><a href="http://colorbrewer2.org/">Color Brewer</a></p>
+<p><a href="http://colorbrewer2.org/">Color Brewer</a> A great website for choosing and building palettes that make it easy to interpret your data, even taking into consideration colourblidness.</p>
 <pre class="r"><code>#Select your colour palette - follow the link for lots of options and a great website for choosing map colour schemes
 
 my_colours &lt;- brewer.pal(6, &quot;YlOrRd&quot;) 
@@ -241,14 +238,14 @@ mymap &lt;- leaflet(height = 300) %&gt;%
   setView(lng = -2.236145, lat = 53.482215, zoom = 16)
 
 mymap</code></pre>
-<div id="htmlwidget-7eab71ed1e750c5b0784" style="width:672px;height:300px;" class="leaflet html-widget"></div>
-<script type="application/json" data-for="htmlwidget-7eab71ed1e750c5b0784">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]}],"setView":[[53.482215,-2.236145],16,[]]},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-0654a4e43d49ef755c51" style="width:672px;height:300px;" class="leaflet html-widget"></div>
+<script type="application/json" data-for="htmlwidget-0654a4e43d49ef755c51">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]}],"setView":[[53.482215,-2.236145],16,[]]},"evals":[],"jsHooks":[]}</script>
 <pre class="r"><code>mymap &lt;- mymap %&gt;% 
   addMarkers(-2.236145, 53.482215, popup=&quot;Hello R-Ladies!&quot;) # add a marker
 
 mymap</code></pre>
-<div id="htmlwidget-9b1848d66405c7cc0e4a" style="width:672px;height:300px;" class="leaflet html-widget"></div>
-<script type="application/json" data-for="htmlwidget-9b1848d66405c7cc0e4a">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]},{"method":"addMarkers","args":[53.482215,-2.236145,null,null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},"Hello R-Ladies!",null,null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]}],"setView":[[53.482215,-2.236145],16,[]],"limits":{"lat":[53.482215,53.482215],"lng":[-2.236145,-2.236145]}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-06d84b61222d6c1fa434" style="width:672px;height:300px;" class="leaflet html-widget"></div>
+<script type="application/json" data-for="htmlwidget-06d84b61222d6c1fa434">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]},{"method":"addMarkers","args":[53.482215,-2.236145,null,null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},"Hello R-Ladies!",null,null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]}],"setView":[[53.482215,-2.236145],16,[]],"limits":{"lat":[53.482215,53.482215],"lng":[-2.236145,-2.236145]}},"evals":[],"jsHooks":[]}</script>
 </div>
 <div id="fancy-interactive-stuff-with-data" class="section level1">
 <h1>Fancy interactive stuff with data!</h1>
@@ -273,8 +270,8 @@ mymeets &lt;- mymap %&gt;%
   addMarkers(data=spdf, popup= spdf$name, clusterOptions = markerClusterOptions()) # add markers and cluster
 
 mymeets</code></pre>
-<div id="htmlwidget-0d3885d756938205af3c" style="width:672px;height:300px;" class="leaflet html-widget"></div>
-<script type="application/json" data-for="htmlwidget-0d3885d756938205af3c">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]},{"method":"addMarkers","args":[53.482215,-2.236145,null,null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},"Hello R-Ladies!",null,null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]},{"method":"addMarkers","args":[[53.48,53.48,53.48,53.48,53.48,53.48,53.48,53.48,53.48,53.48,53.48,53.48,53.48,53.48,53.49,53.48,53.48,53.48,53.48,53.48],[-2.25,-2.25,-2.25,-2.25,-2.25,-2.25,-2.24,-2.25,-2.25,-2.24,-2.25,-2.25,-2.24,-2.25,-2.25,-2.25,-2.2,-2.25,-2.24,-2.24],null,null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},["Manchester - Cambridge Spark","Manchester Futurists","Spark Manchester","Hadoop and Big Data in Manchester","Manchester Peer Lab","Manchester Power BI User Group","HackerNest Manchester Tech Socials","PyData Manchester","Analytics at Speed Manchester","MancDB - Manchester Data & BI","ExpertTalks Manchester","Manchester Artificial Intelligence Meetup","Scientific Self-Improvement","Manchester SQL Server Meetup","Learn To Sew at The Sewing Space","Manchester Apache Kafka® Meetup by Confluent","Manchester Sports Group (Tennis/Football/Badminton)","Manchester Technology Leaders Meet Up Group","McrFRED","Digital North"],null,{"showCoverageOnHover":true,"zoomToBoundsOnClick":true,"spiderfyOnMaxZoom":true,"removeOutsideVisibleBounds":true,"spiderLegPolylineOptions":{"weight":1.5,"color":"#222","opacity":0.5},"freezeAtZoom":false},null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]}],"setView":[[53.482215,-2.236145],16,[]],"limits":{"lat":[53.48,53.49],"lng":[-2.25,-2.2]}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-da4b63e2561f140dff1a" style="width:672px;height:300px;" class="leaflet html-widget"></div>
+<script type="application/json" data-for="htmlwidget-da4b63e2561f140dff1a">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]},{"method":"addMarkers","args":[53.482215,-2.236145,null,null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},"Hello R-Ladies!",null,null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]},{"method":"addMarkers","args":[[53.48,53.48,53.48,53.48,53.48,53.48,53.48,53.48,53.48,53.48,53.48,53.48,53.48,53.48,53.48,53.48,53.48,53.49,53.48,53.48],[-2.25,-2.24,-2.25,-2.24,-2.25,-2.25,-2.25,-2.25,-2.25,-2.25,-2.24,-2.25,-2.25,-2.24,-2.25,-2.24,-2.25,-2.25,-2.2,-2.25],null,null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},["Manchester Power BI User Group","MancDB - Manchester Data & BI","Manchester - Cambridge Spark","Scientific Self-Improvement","Manchester Futurists","Hadoop and Big Data in Manchester","Manchester Apache Kafka® Meetup by Confluent","Spark Manchester","Manchester Technology Leaders Meet Up Group","ExpertTalks Manchester","McrFRED","PyData Manchester","Manchester Artificial Intelligence Meetup","HackerNest Manchester Tech Socials","Analytics at Speed Manchester","Digital North","Manchester SQL Server Meetup","Learn To Sew at The Sewing Space","Manchester Sports Group (Tennis/Football/Badminton)","Manchester Peer Lab"],null,{"showCoverageOnHover":true,"zoomToBoundsOnClick":true,"spiderfyOnMaxZoom":true,"removeOutsideVisibleBounds":true,"spiderLegPolylineOptions":{"weight":1.5,"color":"#222","opacity":0.5},"freezeAtZoom":false},null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]}],"setView":[[53.482215,-2.236145],16,[]],"limits":{"lat":[53.48,53.49],"lng":[-2.25,-2.2]}},"evals":[],"jsHooks":[]}</script>
 <div id="some-online-web-mapping" class="section level3">
 <h3>Some online web mapping</h3>
 <p>Create nice and easily shareable visualisations by just uploading data with a spatial element; points, postcodes, polygons, lines etc.</p>
